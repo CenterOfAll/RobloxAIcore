@@ -1,6 +1,42 @@
-<html>
-  <body>
-    <h3>RobloxAI</h3>
-    <p>[Builder Man]: RobloxAI is a tool for roblox admin's ONLY, If a roblox ADMIN gave you this extension, You have permission to use it. If this is your first time, I advise you to </p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+
+<p id="tutorialMessage">Welcome to the tutorial! Click the button to complete it.</p>
+<button id="completeTutorialButton" onclick="completeTutorial()">Complete Tutorial</button>
+
+<script>
+    // Load the tutorial completion status from localStorage
+    var tutorialComplete = localStorage.getItem("tutorialComplete") || 0;
+
+    // Function to handle completing the tutorial
+    function completeTutorial() {
+        // Increase the tutorialComplete variable to 1
+        tutorialComplete = 1;
+
+        // Save the updated tutorialComplete variable to localStorage
+        localStorage.setItem("tutorialComplete", tutorialComplete);
+
+        // Hide the button after completion
+        document.getElementById("completeTutorialButton").style.display = "none";
+
+        // Update the tutorial message
+        document.getElementById("tutorialMessage").textContent = "Tutorial completed!";
+
+        // Additional logic or actions after completing the tutorial can be added here
+    }
+
+    // Check if the tutorial is already completed and hide the button accordingly
+    window.onload = function () {
+        if (tutorialComplete == 1) {
+            document.getElementById("completeTutorialButton").style.display = "none";
+            document.getElementById("tutorialMessage").textContent = "Tutorial already completed!";
+        }
+    };
+</script>
+
+</body>
 </html>
